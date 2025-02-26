@@ -9,6 +9,7 @@ import CurrencyType from "./specificComponents/currencyType";
 
 
 
+
 export default function HomeScreen(){
     return(
         <SafeAreaView style={{ flex: 1 }}>
