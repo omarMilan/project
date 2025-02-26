@@ -2,9 +2,9 @@
   "expo": {
     "name": "project",
     "splash": {
-      "image": "./assets/splashScreen.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#A2ABCE"
+      "backgroundColor": "#ffffff"
     },
     "slug": "project",
     "version": "1.0.0",
@@ -15,16 +15,12 @@
       "tsconfigPaths": true
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-sqlite"
     ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "assetBundlePatterns": [
       "**/*"
     ],
