@@ -6,6 +6,7 @@ import * as SplashScreen from "expo-splash-screen";
 import HomeScreen from "components/homeScreen";
 import SettingsScreen from "components/settingsScreen";
 import "./global.css"
+import RecievePage from "components/recieveScreen";
 
 // Keep the splash screen visible until manual hiding
 SplashScreen.preventAutoHideAsync();
@@ -44,6 +45,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Recieve" component={RecievePage} />
         <Stack.Screen name="Settings" component={SettingsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
