@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import RecieveIcon from "../../assets/receiveIcon.png";
 import PayIcon from "../../assets/payIcon.png";
-import historyIcon from "../../assets/historyIcon.png";
+import receiptIcon from "../../assets/receiptIcon.png";
 
 export default function CurrencyHandling() {
   const navigation = useNavigation();
@@ -37,7 +37,7 @@ export default function CurrencyHandling() {
       <View className="flex flex-row mt-7 items-center">
         {/* Receive */}
         <TouchableOpacity 
-          className="flex items-center p-2" 
+          className="flex items-center p-1" 
           onPress={() => navigation.navigate('Recieve')}>
             <Image source={RecieveIcon} className="h-6 w-6 mb-1" resizeMode="contain" />
             <Text className="font-bold">Receive</Text>
@@ -47,16 +47,24 @@ export default function CurrencyHandling() {
 
         {/* Pay */}
         <View className="flex items-center">
-          <Image source={PayIcon} className="h-6 w-6 mb-1" />
-          <Text className="font-bold">Pay</Text>
+        <TouchableOpacity 
+          className="flex items-center p-2" 
+          onPress={() => navigation.navigate('Pay')}>
+            <Image source={PayIcon} className="h-6 w-6 mb-1" resizeMode="contain" />
+            <Text className="font-bold">Pay</Text>
+        </TouchableOpacity>
         </View>
 
         <View className="w-[1px] h-12 bg-gray-400 mx-7" />
 
-        {/* History */}
+        {/* Scan */}
         <View className="flex items-center">
-          <Image source={historyIcon} className="h-6 w-6 mb-1" />
-          <Text className="font-bold">History</Text>
+        <TouchableOpacity 
+          className="flex items-center p-2" 
+          onPress={() => navigation.navigate('Pay')}>
+            <Image source={receiptIcon} className="h-6 w-6 mb-1" resizeMode="contain" />
+            <Text className="font-bold">Scan</Text>
+        </TouchableOpacity>
         </View>
       </View>
     </View>

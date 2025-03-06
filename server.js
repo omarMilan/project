@@ -112,10 +112,10 @@ app.get('/user/:id', (req, res) => {
 // API Route to Log Expense
 app.post('/user/:id/transaction', (req, res) => {
   const { id } = req.params;
-  const { name, amount } = req.body;
+  const { name, amount, icon } = req.body;
   const expense = parseFloat(amount);
 
-  if (!name || isNaN(expense) || expense <= 0) {
+  if (!name || isNaN(expense) || expense <= 0 || !icon) {
     return res.status(400).json({ message: 'Invalid transaction data' });
   }
 
@@ -124,10 +124,9 @@ app.post('/user/:id/transaction', (req, res) => {
 
     const newBalance = user.balance - expense;
 
-    // Insert transaction and update balance
     db.run(
-      `INSERT INTO transactions (user_id, name, amount) VALUES (?, ?, ?)`,
-      [id, name, expense],
+      `INSERT INTO transactions (user_id, name, amount, icon) VALUES (?, ?, ?, ?)`,
+      [id, name, expense, icon],
       function (err) {
         if (err) return res.status(500).json({ message: 'Error adding transaction' });
 

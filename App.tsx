@@ -7,6 +7,7 @@ import HomeScreen from "components/homeScreen";
 import SettingsScreen from "components/settingsScreen";
 import "./global.css"
 import RecievePage from "components/recieveScreen";
+import PurchaseScreen from "components/purchaseScreen";
 
 // Keep the splash screen visible until manual hiding
 SplashScreen.preventAutoHideAsync();
@@ -46,6 +47,7 @@ export default function App() {
       <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Recieve" component={RecievePage} />
+        <Stack.Screen name="Pay" component={PurchaseScreen} />
         <Stack.Screen name="Settings" component={SettingsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
