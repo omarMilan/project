@@ -61,6 +61,27 @@ app.put('/user/:id', (req, res) => {
     res.json({ message: 'Username updated successfully' });
   });
 });
+app.post('/user/:id/reset', (req, res) => {
+  const { id } = req.params;
+
+  db.serialize(() => {
+    // ✅ Reset username and balance
+    db.run(`UPDATE users SET username = 'User1', balance = 0 WHERE id = ?`, [id], function (err) {
+      if (err) {
+        return res.status(500).json({ message: 'Error resetting user' });
+      }
+    });
+
+    // ✅ Delete all transactions for the user
+    db.run(`DELETE FROM transactions WHERE user_id = ?`, [id], function (err) {
+      if (err) {
+        return res.status(500).json({ message: 'Error resetting transactions' });
+      }
+    });
+
+    res.json({ message: 'User and transactions reset successfully' });
+  });
+});
 
 // API Route to Receive Money (Add to Balance)
 app.post('/user/:id/receive', (req, res) => {
@@ -110,12 +131,13 @@ app.get('/user/:id', (req, res) => {
 });
 
 // API Route to Log Expense
+
 app.post('/user/:id/transaction', (req, res) => {
   const { id } = req.params;
-  const { name, amount, icon } = req.body;
+  const { name, amount } = req.body; // Removed 'icon'
   const expense = parseFloat(amount);
 
-  if (!name || isNaN(expense) || expense <= 0 || !icon) {
+  if (!name || isNaN(expense) || expense <= 0) {
     return res.status(400).json({ message: 'Invalid transaction data' });
   }
 
@@ -125,8 +147,8 @@ app.post('/user/:id/transaction', (req, res) => {
     const newBalance = user.balance - expense;
 
     db.run(
-      `INSERT INTO transactions (user_id, name, amount, icon) VALUES (?, ?, ?, ?)`,
-      [id, name, expense, icon],
+      `INSERT INTO transactions (user_id, name, amount) VALUES (?, ?, ?)`, // Removed 'icon'
+      [id, name, expense],
       function (err) {
         if (err) return res.status(500).json({ message: 'Error adding transaction' });
 

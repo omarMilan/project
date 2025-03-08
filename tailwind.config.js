@@ -6,11 +6,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        CustomYellow: '#F2FFAA',
-        CustomGray: '#A2ABCE',
-        CustomGrayShadeOne: '#848DB0',
-        CustomGrayShadeTwo: '#666F92',
-        CustomGrayShadeThree: '#485174',
+        CustomYellow: '#FFD700',
+        CustomBlack: '#121212',
+        CustomYellowShadeOne: '#FFD700',
+        CustomYellowShadeTwo: '#C39B00',
         CustomRed: '#FF7373',
       },
     },

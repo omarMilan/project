@@ -13,7 +13,7 @@ import CurrencyType from "./specificComponents/currencyType";
 export default function HomeScreen(){
     return(
         <SafeAreaView style={{ flex: 1 }}>
-<View className="h-screen w-screen bg-CustomGray">
+<View className="h-screen w-screen bg-CustomBlack">
     <View className="flex  flex-row items-center">
 <ProfilePicture/>
 <SettingsButton/>

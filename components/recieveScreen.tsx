@@ -62,35 +62,35 @@ export default function RecievePage() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View className="bg-white h-screen w-screen flex justify-center">
+      <View className="bg-CustomYellow h-screen w-screen flex justify-center">
         <View className="absolute top-0 mt-2">
           <BackButton />
         </View>
 
         {/* Balance Display */}
         <View className="flex-col items-center">
-          <Text className="text-[64px] font-bold">${amount}</Text>
-          <Text className="font-semibold text-[16px] mt-[24px]">
+          <Text className="text-[64px] text-customBlack font-bold">${amount}</Text>
+          <Text className="font-semibold text-[16px] text-customBlack mt-[24px]">
             Current Balance: ${balance.toFixed(2)}
           </Text>
-          <Text className="text-green-500 font-medium mt-2">
+          <Text className="text-customBlack font-medium mt-2">
             +${recentDeposit.toFixed(2)} added
           </Text>
-          <View className="rounded-[20px] bg-CustomGrayShadeTwo w-[106px] h-[40px] mt-[24px] flex items-center justify-center">
-            <Text className="font-bold text-[16px] text-white">USD</Text>
+          <View className="rounded-[20px] bg-CustomBlack w-[106px] h-[40px] mt-[24px] flex items-center justify-center">
+            <Text className="font-bold text-[16px] text-CustomYellow">USD</Text>
           </View>
         </View>
 
         {/* Number Pad */}
-        <View className="flex flex-wrap flex-row justify-center items-center mt-[24px] gap-4 px-4">
+        <View className="flex flex-wrap flex-row justify-center items-center mt-[24px] gap-4 px-4 ">
           {["1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "0", "<"].map(
             (num, index) => (
               <TouchableOpacity
                 key={index}
-                className="w-[30%] h-[60px] flex items-center justify-center"
+                className="w-[30%] h-[60px] flex items-center justify-center "
                 onPress={() => handlePress(num)}
               >
-                <Text className="text-[32px] font-bold">{num}</Text>
+                <Text className="text-[32px] font-bold text-customBlack">{num}</Text>
               </TouchableOpacity>
             )
           )}
@@ -102,7 +102,7 @@ export default function RecievePage() {
             disabled={amount === "0"}
             onPress={handleReceive}
             className={`rounded-[20px] ${
-              amount === "0" ? "bg-CustomGrayShadeTwo" : "bg-green-500 "
+              amount === "0" ? "bg-CustomYellowShadeTwo" : "bg-CustomBlack "
             } w-[50%] h-[40px] flex items-center justify-center `}>
             <Text className="font-bold text-[16px] text-white">Receive</Text>
           </TouchableOpacity>

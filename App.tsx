@@ -8,6 +8,7 @@ import SettingsScreen from "components/settingsScreen";
 import "./global.css"
 import RecievePage from "components/recieveScreen";
 import PurchaseScreen from "components/purchaseScreen";
+import HistoryScreen from "components/historyScreen";
 
 // Keep the splash screen visible until manual hiding
 SplashScreen.preventAutoHideAsync();
@@ -49,6 +50,7 @@ export default function App() {
         <Stack.Screen name="Recieve" component={RecievePage} />
         <Stack.Screen name="Pay" component={PurchaseScreen} />
         <Stack.Screen name="Settings" component={SettingsScreen} />
+        <Stack.Screen name="History" component={HistoryScreen} />
       </Stack.Navigator>
     </NavigationContainer>
 
@@ -61,11 +63,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#A2ABCE", // Same as app.json
+    backgroundColor: "#121212", // Same as app.json
   },
   logo: {
-    width: 200, // Adjust size
-    height: 200, // Adjust size
+    width: 380, // Adjust size
+    height: 380, // Adjust size
     resizeMode: "contain",
   },
 });
